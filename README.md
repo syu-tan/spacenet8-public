@@ -5,7 +5,7 @@
 
 spacenet8: https://spacenet.ai/sn8-challenge/
 
-## public 6th Solution 
+## public 7th Solution 
 
 
 ### competition code manegemanet
