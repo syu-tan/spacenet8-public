@@ -1,0 +1,20 @@
+pygdal==3.0.4.10
+horovod==0.24.3
+scikit-image==0.19.2
+Fiona==1.8.21
+Shapely==1.8.2
+geojson==2.5.0
+utm==0.7.0
+statsmodels==0.13.2
+
+# spacenet5: https://github.com/CosmiQ/cresi/blob/master/docker/cpu/Dockerfile
+geopandas==0.6.3
+osmnx==0.11.4
+# geopandas >= 0.7, 0.6 < issue :https://gis.stackexchange.com/questions/348997/constant-future-warnings-with-new-pyproj
+
+# syu
+jupyterlab
+wandb
+tensorboard
+tensorboardX
+pytorch-lightning

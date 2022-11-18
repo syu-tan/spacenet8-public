@@ -1,0 +1,15 @@
+# jupyterlab
+
+# basic
+joblib
+numpy
+pandas
+tifffile
+imagecodecs
+rasterio
+matplotlib
+seaborn
+tqdm
+
+# data
+# awscli

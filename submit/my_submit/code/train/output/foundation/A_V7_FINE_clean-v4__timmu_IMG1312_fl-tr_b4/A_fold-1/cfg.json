@@ -1,0 +1,122 @@
+{
+    "debug": false,
+    "debug_sample": 32,
+    "folds": 5,
+    "seed": 417,
+    "eps": 1e-12,
+    "outdir": "../../train/output/foundation/",
+    "PATH_FOLD_CSV": "../../data/folds/",
+    "csv_state": "clean-v4_",
+    "epoch": 60,
+    "trainer": {
+        "gpus": 1,
+        "accumulate_grad_batches": 1,
+        "progress_bar_refresh_rate": 1,
+        "stochastic_weight_avg": false,
+        "fast_dev_run": false,
+        "num_sanity_val_steps": 0,
+        "resume_from_checkpoint": null,
+        "check_val_every_n_epoch": 2,
+        "val_check_interval": 1.0,
+        "precision": 16,
+        "gradient_clip_val": 10.0,
+        "gradient_clip_algorithm": "value"
+    },
+    "optimizer": {
+        "name": "optim.AdamW",
+        "params": {
+            "lr": 5e-05
+        }
+    },
+    "scheduler": {
+        "name": "optim.lr_scheduler.CosineAnnealingWarmRestarts",
+        "params": {
+            "T_0": 20,
+            "eta_min": 1e-05
+        }
+    },
+    "model": {
+        "architecture": "timmu",
+        "threshold": 0.4,
+        "loss_mode": "multilabel",
+        "loss": "MultiBCEDiceLoss(raito=0.5, mode='multilabel')",
+        "in_channels": 3,
+        "out_channels": 9,
+        "decoder_channels": [
+            256,
+            128,
+            64,
+            32,
+            16
+        ],
+        "encoder_name": "efficientnet-b0",
+        "act": null,
+        "decoder_use_batchnorm": true,
+        "timmu": {
+            "encoder_params": {
+                "encoder": "hrnet_w48",
+                "decoder_filters": [
+                    48,
+                    96,
+                    176,
+                    256
+                ],
+                "last_upsample": 48
+            }
+        },
+        "unet_params": {
+            "encoder_name": "timm-regnety_032",
+            "encoder_depth": 4,
+            "encoder_weights": "imagenet",
+            "decoder_use_batchnorm": true,
+            "decoder_channels": [
+                256,
+                128,
+                64,
+                32
+            ],
+            "decoder_attention_type": null,
+            "activation": null
+        }
+    },
+    "weight": "../../train/output/foundation/A_V6_clean-v2__timmu_IMG1312_hrnet_w48-dec256_fl-tr_b4/",
+    "mixup": 0.0,
+    "thick": {
+        "use": false,
+        "kernel": [
+            3,
+            3
+        ]
+    },
+    "train_loader": {
+        "batch_size": 4,
+        "shuffle": true,
+        "num_workers": 4,
+        "pin_memory": false,
+        "drop_last": true
+    },
+    "val_loader": {
+        "batch_size": 4,
+        "shuffle": false,
+        "num_workers": 4,
+        "pin_memory": false,
+        "drop_last": false
+    },
+    "features": [
+        "preimg",
+        "building",
+        "road",
+        "roadspeed",
+        "flood"
+    ],
+    "preprocess": {
+        "input_size": 1312
+    },
+    "project": "SpaceNet8_foundation",
+    "runname": "A",
+    "group": "A_V7_FINE_clean-v4__timmu_IMG1312_fl-tr_b4",
+    "notebook": "baseline_foundation_fine.py",
+    "augmentation": "{'train':Compose([Transpose(always_apply=False,p=0.25),Flip(always_apply=False,p=0.5),Resize(always_apply=False,p=1,height=1312,width=1312,interpolation=1),ToTensorV2(always_apply=True,p=1.0,transpose_mask=False),],p=1.0,bbox_params=None,keypoint_params=None,additional_targets={}),'val':Compose([Resize(always_apply=False,p=1,height=1312,width=1312,interpolation=1),ToTensorV2(always_apply=True,p=1.0,transpose_mask=False),],p=1.0,bbox_params=None,keypoint_params=None,additional_targets={})}",
+    "fold": 1,
+    "f": "flood"
+}

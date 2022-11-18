@@ -1,0 +1,20 @@
+# conda install -y gdal
+pandas 
+numpy
+tqdm
+matplotlib
+tifffile
+scikit-learn
+
+joblib
+python-box
+tqdm
+timm
+ttach
+adabelief-pytorch
+albumentations
+segmentation-models-pytorch
+wandb
+tensorboard
+tensorboardX
+pytorch-lightning
