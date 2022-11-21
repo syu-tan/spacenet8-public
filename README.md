@@ -7,6 +7,16 @@ spacenet8: https://spacenet.ai/sn8-challenge/
 
 ## public 7th Solution 
 
+## inference samples
+
+- foundation
+![foundation_0](figure/105001001A0FFC00_0_12_4_pred.png)
+![foundation_0](figure/10400100684A4B00_1_25_71_pred.png)
+
+
+- flood
+![flood_0](figure/10300100AF395C00_2_20_58_pred.png)
+![flood_1](figure/10500500C4DD7000_0_27_68_pred.png)
 
 ### competition code manegemanet
 for develop logging and sharing
